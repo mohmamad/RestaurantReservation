@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Customers" Category="EntityType" Annotations="Relational:TableName: Customers RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="454.050416057625,860.004713747471,322.256706136068,197.8804" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Customers" Name="Customers" />
+    <Node Id="Customers.CustomersId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="474.050438640633,955.964913747471,110.84,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CustomersId (int)" MaxLength="None" Name="CustomersId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Customers.Email" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="474.050416057626,900.004871429763,88.95,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Email (string)" MaxLength="None" Name="Email" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customers.FirstName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="474.050447185555,1011.92501374747,114.42,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="FirstName (string)" MaxLength="None" Name="FirstName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customers.LastName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="614.890420126636,955.964893402419,113.236666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="LastName (string)" MaxLength="None" Name="LastName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customers.PhoneNumber" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="618.470455527027,1011.92497641023,137.836666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PhoneNumber (string)" MaxLength="None" Name="PhoneNumber" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customers.Reservations" Category="Navigation Collection" Bounds="593.000432333667,900.004813747471,101.916666666667,25.96" Dependent="Reservations" Field="" Inverse="" Label="Reservations (*)" Name="Reservations" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Reservations&gt;" />
+    <Node Id="Employees" Category="EntityType" Annotations="Relational:TableName: Employees RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="264.998750408211,588.184647064528,300.36000793457,197.880478027344" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Employees" Name="Employees" />
+    <Node Id="Employees.EmployeesId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="284.998771160165,684.144925091872,111.4,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="EmployeesId (int)" MaxLength="None" Name="EmployeesId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Employees.FirstName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="284.998750408211,740.1049860782,114.42,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="FirstName (string)" MaxLength="None" Name="FirstName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Employees.LastName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="426.398766684253,684.1448860782,113.236666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="LastName (string)" MaxLength="None" Name="LastName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Employees.Orders" Category="Navigation Collection" Bounds="284.998751628915,628.1847860782,71.36,25.96" Dependent="Orders" Field="" Inverse="" Label="Orders (*)" Name="Orders" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Orders&gt;" />
+    <Node Id="Employees.Position" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="386.358787232756,628.184825091872,102.723333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Position (string)" MaxLength="None" Name="Position" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Employees.RestaurantsId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="429.418758342782,740.104908050857,115.94,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RestaurantsId (int)" MaxLength="None" Name="RestaurantsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="IModel" Category="Model" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]] Relational:MaxIdentifierLength: 128 RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]] SqlServer:ValueGenerationStrategy: IdentityColumn" Bounds="43.770442897368,-15.9076779684718,1076.3860168457,1456.92686072998" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" Label="RestaurantReservationDbContext" ProductVersion="7.0.12" PropertyAccessMode="PropertyAccessMode.Default" UseManualLocation="True" />
+    <Node Id="MenuItem" Category="EntityType" Annotations="Relational:TableName: MenuItems RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="63.770433122038,860.004712909255,306.816666666667,197.880383007812" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="MenuItem" Name="MenuItem" />
+    <Node Id="MenuItem.Description" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="229.710433122038,1011.92497641023,120.876666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Description (string)" MaxLength="None" Name="Description" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="MenuItem.ItemId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="183.680448609709,900.004832416091,78.4233333333334,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ItemId (int)" MaxLength="None" Name="ItemId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="MenuItem.Name" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="83.7704453545005,955.964951922927,92.32,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Name (string)" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="MenuItem.OrderItems" Category="Navigation Collection" Bounds="206.090451051115,955.964893402419,95.2333333333333,25.96" Dependent="OrderItems" Field="" Inverse="" Label="OrderItems (*)" Name="OrderItems" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;OrderItems&gt;" />
+    <Node Id="MenuItem.Price" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="83.7704473381431,900.004851922927,69.91,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Price (int)" MaxLength="None" Name="Price" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="MenuItem.RestaurantsId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="83.7704331220379,1011.92497641023,115.94,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RestaurantsId (int)" MaxLength="None" Name="RestaurantsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderItems" Category="EntityType" Annotations="Relational:TableName: OrderItems RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="139.053769125659,24.0925743167258,250.250025838216,197.8804003479" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="OrderItems" Name="OrderItems" />
+    <Node Id="OrderItems.MenuItemId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="159.053769125659,120.052764953933,109.056666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="MenuItemId (int)" MaxLength="None" Name="MenuItemId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderItems.OrderItemsId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="159.053786317228,176.012874664626,114.253333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrderItemsId (int)" MaxLength="None" Name="OrderItemsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="OrderItems.OrdersId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="278.923794963876,64.0926743167258,90.38,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrdersId (int)" MaxLength="None" Name="OrdersId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderItems.Quantity" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="159.053787334481,64.0926743167258,89.87,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Quantity (int)" MaxLength="None" Name="Quantity" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Orders" Category="EntityType" Annotations="Relational:TableName: Orders RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="250.593754273771,267.932673651442,329.170021972656,197.880405029297" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Orders" Name="Orders" />
+    <Node Id="Orders.EmployeesId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="270.593772380868,363.892956708083,111.4,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="EmployeesId (int)" MaxLength="None" Name="EmployeesId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Orders.OrderDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="422.967109579761,419.852978680739,136.796666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrderDate (DateTime)" MaxLength="None" Name="OrderDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Orders.OrderItems" Category="Navigation Collection" Bounds="390.973782349943,307.932773651443,95.2333333333333,25.96" Dependent="OrderItems" Field="" Inverse="" Label="OrderItems (*)" Name="OrderItems" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;OrderItems&gt;" />
+    <Node Id="Orders.OrdersId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="270.593777874032,307.932856708083,90.38,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrdersId (int)" MaxLength="None" Name="OrdersId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Orders.ReservationsId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="411.993743490894,363.892878680739,120.936666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ReservationsId (int)" MaxLength="None" Name="ReservationsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Orders.TotalAmount" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="270.593754273771,419.852970184646,122.373333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TotalAmount (float)" MaxLength="None" Name="TotalAmount" PropertyAccessMode="PropertyAccessMode.Default" Type="float" ValueGenerated="None" />
+    <Node Id="Reservations" Category="EntityType" Annotations="Relational:TableName: Reservations RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="596.167092083016,511.772898871169,350.023349202474,253.840510058594" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Reservations" Name="Reservations" />
+    <Node Id="Reservations.CustomersId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="616.167092083016,607.733081878982,110.84,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CustomersId (int)" MaxLength="None" Name="CustomersId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Reservations.Orders" Category="Navigation Collection" Bounds="616.167101848641,551.772998871169,71.36,25.96" Dependent="Orders" Field="" Inverse="" Label="Orders (*)" Name="Orders" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Orders&gt;" />
+    <Node Id="Reservations.PartySize" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="834.453774618823,551.772998871169,91.7366666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PartySize (int)" MaxLength="None" Name="PartySize" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Reservations.ReservationDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="616.167108765959,719.653308929763,167.353333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ReservationDate (DateTime)" MaxLength="None" Name="ReservationDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Reservations.ReservationId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="757.007130738615,607.733081878982,115.843333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ReservationId (int)" MaxLength="None" Name="ReservationId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Reservations.RestaurantsId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="616.167110393563,663.69322592195,115.94,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RestaurantsId (int)" MaxLength="None" Name="RestaurantsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Reservations.TablesId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="717.527079062183,551.772998871169,86.9266666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TablesId (int)" MaxLength="None" Name="TablesId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Restaurants" Category="EntityType" Annotations="Relational:TableName: Restaurants RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="640.440408326506,1167.17856054109,361.476693522136,253.840579589844" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Restaurants" Name="Restaurants" />
+    <Node Id="Restaurants.Address" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="660.440408326506,1319.09883505281,103.133333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Address (string)" MaxLength="None" Name="Address" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Restaurants.Employees" Category="Navigation Collection" Bounds="880.667111614266,1207.17866903718,92.38,25.96" Dependent="Employees" Field="" Inverse="" Label="Employees (*)" Name="Employees" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Employees&gt;" />
+    <Node Id="Restaurants.Name" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="758.347105510751,1207.17866903718,92.3200000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Name (string)" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Restaurants.OpeningHour" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="828.277101848641,1375.05904013093,153.64,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OpeningHour (DateTime)" MaxLength="None" Name="OpeningHour" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Restaurants.PhoneNumber" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="660.440426230151,1375.05904013093,137.836666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PhoneNumber (string)" MaxLength="None" Name="PhoneNumber" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Restaurants.Reservations" Category="Navigation Collection" Bounds="785.13043721648,1263.138752045,101.916666666667,25.96" Dependent="Reservations" Field="" Inverse="" Label="Reservations (*)" Name="Reservations" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Reservations&gt;" />
+    <Node Id="Restaurants.RestaurantsId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="793.573787639657,1319.09883505281,115.94,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RestaurantsId (int)" MaxLength="None" Name="RestaurantsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Restaurants.Tables" Category="Navigation Collection" Bounds="660.440429892261,1207.17866054109,67.9066666666666,25.96" Dependent="Tables" Field="" Inverse="" Label="Tables (*)" Name="Tables" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Tables&gt;" />
+    <Node Id="Restaurants.menuItems" Category="Navigation Collection" Bounds="660.440425823251,1263.13876054109,94.6899999999999,25.96" Dependent="MenuItem" Field="" Inverse="" Label="menuItems (*)" Name="menuItems" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;MenuItem&gt;" />
+    <Node Id="Tables" Category="EntityType" Annotations="" BaseClass="" Bounds="853.919779257496,795.613469378982,246.236588948568,197.880444042969" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Tables" Name="Tables" UseManualLocation="True" />
+    <Node Id="Tables.Capacity" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="990.846368206063,835.613575043044,89.3099999999999,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Capacity (int)" MaxLength="None" Name="Capacity" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Tables.Reservations" Category="Navigation Collection" Bounds="873.919804892261,891.573713421951,101.916666666667,25.96" Dependent="Reservations" Field="" Inverse="" Label="Reservations (*)" Name="Reservations" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Reservations&gt;" />
+    <Node Id="Tables.RestaurantsID" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="873.919802450855,947.533813421951,117.286666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RestaurantsID (int)" MaxLength="None" Name="RestaurantsID" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Tables.TablesId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="873.919779257496,835.613569378982,86.9266666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TablesId (int)" MaxLength="None" Name="TablesId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+  </Nodes>
+  <Links>
+    <Link Source="Customers" Target="Customers.CustomersId" Category="Contains" />
+    <Link Source="Customers" Target="Customers.Email" Category="Contains" />
+    <Link Source="Customers" Target="Customers.FirstName" Category="Contains" />
+    <Link Source="Customers" Target="Customers.LastName" Category="Contains" />
+    <Link Source="Customers" Target="Customers.PhoneNumber" Category="Contains" />
+    <Link Source="Customers" Target="Customers.Reservations" Category="Contains" />
+    <Link Source="Employees" Target="Employees.EmployeesId" Category="Contains" />
+    <Link Source="Employees" Target="Employees.FirstName" Category="Contains" />
+    <Link Source="Employees" Target="Employees.LastName" Category="Contains" />
+    <Link Source="Employees" Target="Employees.Orders" Category="Contains" />
+    <Link Source="Employees" Target="Employees.Position" Category="Contains" />
+    <Link Source="Employees" Target="Employees.RestaurantsId" Category="Contains" />
+    <Link Source="Employees" Target="Restaurants" Category="Foreign Key" Annotations="" Bounds="565.358764648438,752.624816894531,245.382019042969,405.580139160156" From="Employees.RestaurantsId" IsUnique="False" Label="1:*" LabelBounds="665.114017947388,804.452337168544,14.0733333333333,15.96" Name="Employees -&gt; Restaurants" To="Restaurants.RestaurantsId" />
+    <Link Source="IModel" Target="Customers" Category="Contains" />
+    <Link Source="IModel" Target="Employees" Category="Contains" />
+    <Link Source="IModel" Target="MenuItem" Category="Contains" />
+    <Link Source="IModel" Target="OrderItems" Category="Contains" />
+    <Link Source="IModel" Target="Orders" Category="Contains" />
+    <Link Source="IModel" Target="Reservations" Category="Contains" />
+    <Link Source="IModel" Target="Restaurants" Category="Contains" />
+    <Link Source="IModel" Target="Tables" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.Description" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.ItemId" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.Name" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.OrderItems" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.Price" Category="Contains" />
+    <Link Source="MenuItem" Target="MenuItem.RestaurantsId" Category="Contains" />
+    <Link Source="MenuItem" Target="Restaurants" Category="Foreign Key" Annotations="" Bounds="370.587099788705,1044.06975411812,261.98367269498,145.372290270937" From="MenuItem.RestaurantsId" IsUnique="False" Label="1:*" LabelBounds="502.549333323589,1099.04709128852,14.0733333333333,15.96" Name="MenuItem -&gt; Restaurants" To="Restaurants.RestaurantsId" />
+    <Link Source="OrderItems" Target="MenuItem" Category="Foreign Key" Annotations="" Bounds="204.794250488281,221.97297668457,43.036865234375,629.038681030273" From="OrderItems.MenuItemId" IsUnique="False" Label="1:*" LabelBounds="236.247244576251,311.754619162803,14.0733333333333,15.96" Name="OrderItems -&gt; MenuItem" To="MenuItem.ItemId" />
+    <Link Source="OrderItems" Target="OrderItems.MenuItemId" Category="Contains" />
+    <Link Source="OrderItems" Target="OrderItems.OrderItemsId" Category="Contains" />
+    <Link Source="OrderItems" Target="OrderItems.OrdersId" Category="Contains" />
+    <Link Source="OrderItems" Target="OrderItems.Quantity" Category="Contains" />
+    <Link Source="OrderItems" Target="Orders" Category="Foreign Key" Annotations="" Bounds="325.448312622126,221.972974664626,23.7225642301414,38.3080338865355" From="OrderItems.OrdersId" IsUnique="False" Label="1:*" LabelBounds="339.009964759481,224.114023523232,14.0733333333333,15.96" Name="OrderItems -&gt; Orders" To="Orders.OrdersId" />
+    <Link Source="Orders" Target="Employees" Category="Foreign Key" Annotations="" Bounds="415.178758044128,465.813078680739,3.85322954343792E-06,113.371568383789" From="Orders.EmployeesId" IsUnique="False" Label="1:*" LabelBounds="419.178759970743,514.518862940609,14.0733333333333,15.96" Name="Orders -&gt; Employees" To="Employees.EmployeesId" />
+    <Link Source="Orders" Target="Orders.EmployeesId" Category="Contains" />
+    <Link Source="Orders" Target="Orders.OrderDate" Category="Contains" />
+    <Link Source="Orders" Target="Orders.OrderItems" Category="Contains" />
+    <Link Source="Orders" Target="Orders.OrdersId" Category="Contains" />
+    <Link Source="Orders" Target="Orders.ReservationsId" Category="Contains" />
+    <Link Source="Orders" Target="Orders.TotalAmount" Category="Contains" />
+    <Link Source="Orders" Target="Reservations" Category="Foreign Key" Annotations="" Bounds="544.75965057779,465.813078680739,53.0398240477704,40.4980327134042" From="Orders.ReservationsId" IsUnique="False" Label="1:*" LabelBounds="572.493293152126,468.512485603994,14.0733333333335,15.96" Name="Orders -&gt; Reservations" To="Reservations.ReservationId" />
+    <Link Source="Reservations" Target="Customers" Category="Foreign Key" Annotations="" Bounds="667.315512723034,765.613408929763,42.0382713782495,86.3001961570785" From="Reservations.CustomersId" IsUnique="False" Label="1:*" LabelBounds="688.818976578395,812.336235823314,14.0733333333333,15.96" Name="Reservations -&gt; Customers" To="Customers.CustomersId" />
+    <Link Source="Reservations" Target="Reservations.CustomersId" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.Orders" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.PartySize" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.ReservationDate" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.ReservationId" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.RestaurantsId" Category="Contains" />
+    <Link Source="Reservations" Target="Reservations.TablesId" Category="Contains" />
+    <Link Source="Reservations" Target="Restaurants" Category="Foreign Key" Annotations="" Bounds="780.861336295906,765.613408929763,29.9502383568209,392.591227628352" From="Reservations.RestaurantsId" IsUnique="False" Label="1:*" LabelBounds="792.582898960162,858.696199653593,14.0733333333333,15.96" Name="Reservations -&gt; Restaurants" To="Restaurants.RestaurantsId" />
+    <Link Source="Reservations" Target="Tables" Category="Foreign Key" Annotations="" Bounds="873.295787174864,765.613408929763,18.4955353759179,22.9879216563189" From="Reservations.TablesId" IsUnique="False" Label="1:*" LabelBounds="866.911968464401,778.361103136732,14.0733333333334,15.96" Name="Reservations -&gt; Tables" To="Tables.TablesId" />
+    <Link Source="Restaurants" Target="Restaurants.Address" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.Employees" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.Name" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.OpeningHour" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.PhoneNumber" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.Reservations" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.RestaurantsId" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.Tables" Category="Contains" />
+    <Link Source="Restaurants" Target="Restaurants.menuItems" Category="Contains" />
+    <Link Source="Tables" Target="Restaurants" Category="Foreign Key" Annotations="" Bounds="873.960104503973,993.493913421951,64.4821928908876,165.300016907651" From="Tables.RestaurantsID" IsUnique="False" Label="1:*" LabelBounds="910.211237302099,1071.36747997561,14.0733333333333,15.96" Name="Tables -&gt; Restaurants" To="Restaurants.RestaurantsId" />
+    <Link Source="Tables" Target="Tables.Capacity" Category="Contains" />
+    <Link Source="Tables" Target="Tables.Reservations" Category="Contains" />
+    <Link Source="Tables" Target="Tables.RestaurantsID" Category="Contains" />
+    <Link Source="Tables" Target="Tables.TablesId" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="EntityType" />
+    <Category Id="Foreign Key" />
+    <Category Id="Model" />
+    <Category Id="Navigation Collection" />
+    <Category Id="Property Foreign" />
+    <Category Id="Property Primary" />
+    <Category Id="Property Required" />
+  </Categories>
+  <Properties>
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass" Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Field" Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsAbstract" Label="IsAbstract" Description="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="MaxLength" DataType="System.String" />
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type" Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>
