@@ -1,16 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantReservation.Db.Models;
+using System.Reflection.Metadata;
 
 namespace RestaurantReservation.Db
 {
     public class RestaurantReservationDbContext:DbContext
     {
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
-        public DbSet<OrderItems> OrderItems { get; set; }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<Reservations> Reservations { get; set; }
-        public DbSet<Restaurants> Restaurants { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,92 +22,149 @@ namespace RestaurantReservation.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customers>().HasKey(c => c.CustomersId);
-            modelBuilder.Entity<Employees>().HasKey(c => c.EmployeesId);
+            modelBuilder.Entity<Customer>().HasKey(c => c.CustomerId);
+            modelBuilder.Entity<Employee>().HasKey(c => c.EmployeeId);
             modelBuilder.Entity<MenuItem>().HasKey(c => c.ItemId);
-            modelBuilder.Entity<OrderItems>().HasKey(c => c.OrderItemsId);
-            modelBuilder.Entity<Orders>().HasKey(c => c.OrdersId);
-            modelBuilder.Entity<Reservations>().HasKey(c => c.ReservationId);
-            modelBuilder.Entity<Restaurants>().HasKey(c => c.RestaurantsId);
-            modelBuilder.Entity<Tables>().HasKey(c => c.TablesId);
-           
-            
+            modelBuilder.Entity<OrderItem>().HasKey(c => c.OrderItemId);
+            modelBuilder.Entity<Order>().HasKey(c => c.OrderId);
+            modelBuilder.Entity<Reservation>().HasKey(c => c.ReservationId);
+            modelBuilder.Entity<Restaurant>().HasKey(c => c.RestaurantId);
+            modelBuilder.Entity<Table>().HasKey(c => c.TableId);
 
-            
-            var restaurants = new Restaurants[]
+            modelBuilder.Entity<Order>()
+            .HasMany(e => e.OrderItems)
+            .WithOne(e => e.Order)
+            .HasForeignKey(e => e.OrderId)
+            .HasPrincipalKey(e => e.OrderId);
+
+            modelBuilder.Entity<MenuItem>()
+            .HasMany(e => e.OrderItems)
+            .WithOne(e => e.MenuItem)
+            .HasForeignKey(e => e.OrderItemId)
+            .HasPrincipalKey(e => e.ItemId);
+
+            modelBuilder.Entity<Employee>()
+            .HasMany(e => e.Orders)
+            .WithOne(e => e.Employee)
+            .HasForeignKey(e => e.OrderId)
+            .HasPrincipalKey(e => e.EmployeeId);
+
+            modelBuilder.Entity<Reservation>()
+            .HasMany(e => e.Orders)
+            .WithOne(e => e.Reservation)
+            .HasForeignKey(e => e.OrderId)
+            .HasPrincipalKey(e => e.ReservationId);
+
+            modelBuilder.Entity<Restaurant>()
+            .HasMany(e => e.Employees)
+            .WithOne(e => e.Restaurant)
+            .HasForeignKey(e => e.EmployeeId)
+            .HasPrincipalKey(e => e.RestaurantId);
+
+            modelBuilder.Entity<Customer>()
+            .HasMany(e => e.Reservations)
+            .WithOne(e => e.Customer)
+            .HasForeignKey(e => e.ReservationId)
+            .HasPrincipalKey(e => e.CustomerId);
+
+            modelBuilder.Entity<Restaurant>()
+            .HasMany(e => e.Reservations)
+            .WithOne(e => e.Restaurant)
+            .HasForeignKey(e => e.ReservationId)
+            .HasPrincipalKey(e => e.RestaurantId);
+
+            modelBuilder.Entity<Table>()
+            .HasMany(e => e.Reservations)
+            .WithOne(e => e.Table)
+            .HasForeignKey(e => e.ReservationId)
+            .HasPrincipalKey(e => e.TableId);
+
+            modelBuilder.Entity<Restaurant>()
+            .HasMany(e => e.Tables)
+            .WithOne(e => e.Restaurant)
+            .HasForeignKey(e => e.TableId)
+            .HasPrincipalKey(e => e.RestaurantId);
+
+            modelBuilder.Entity<Restaurant>()
+            .HasMany(e => e.MenuItems)
+            .WithOne(e => e.Restaurant)
+            .HasForeignKey(e => e.ItemId)
+            .HasPrincipalKey(e => e.RestaurantId);
+
+            var restaurants = new Restaurant[]
             {
-                new Restaurants{RestaurantsId = 1, Name = "shawrma", Address = "sesimi street" , PhoneNumber = "0590033220" },
-                new Restaurants{RestaurantsId = 2, Name = "ala kafak", Address = "nablus street" , PhoneNumber = "0590044220" },
-                new Restaurants{RestaurantsId = 3, Name = "malaki", Address = "rafedia street" , PhoneNumber = "0590033670" },
-                new Restaurants{RestaurantsId = 4, Name = "aldeek", Address = "noway street" , PhoneNumber = "0590035670" },
-                new Restaurants{RestaurantsId = 5, Name = "potato", Address = "potato street" , PhoneNumber = "0590256678" }
+                new Restaurant{RestaurantId = 1, Name = "shawrma", Address = "sesimi street" , PhoneNumber = "0590033220" },
+                new Restaurant{RestaurantId = 2, Name = "ala kafak", Address = "nablus street" , PhoneNumber = "0590044220" },
+                new Restaurant{RestaurantId = 3, Name = "malaki", Address = "rafedia street" , PhoneNumber = "0590033670" },
+                new Restaurant{RestaurantId = 4, Name = "aldeek", Address = "noway street" , PhoneNumber = "0590035670" },
+                new Restaurant{RestaurantId = 5, Name = "potato", Address = "potato street" , PhoneNumber = "0590256678" }
             };
 
-            modelBuilder.Entity<Restaurants>().HasData(restaurants);
+            modelBuilder.Entity<Restaurant>().HasData(restaurants);
 
-            var customers = new Customers[] 
+            var customers = new Customer[] 
             {
-                new Customers{CustomersId = 1, FirstName = "mohamad" , LastName = "moghrabi" , Email = "asd@gmail.com" , PhoneNumber = "0564235698"}
-                , new Customers{CustomersId = 2, FirstName = "hamza" , LastName = "makhlof" , Email = "hamza@gmail.com" , PhoneNumber = "0594235698"}
-                , new Customers{CustomersId = 3, FirstName = "ahmed" , LastName = "hamdan" , Email = "ahmed@gmail.com" , PhoneNumber = "0564275698"}
-                , new Customers{CustomersId = 4, FirstName = "ramiz" , LastName = "saleh" , Email = "ramiz@gmail.com" , PhoneNumber = "0564235321"}
-                , new Customers{CustomersId = 5, FirstName = "sodki" , LastName = "saleh" , Email = "sodki@gmail.com" , PhoneNumber = "0564232198"}
+                new Customer{CustomerId = 1, FirstName = "mohamad" , LastName = "moghrabi" , Email = "asd@gmail.com" , PhoneNumber = "0564235698"}
+                , new Customer{CustomerId = 2, FirstName = "hamza" , LastName = "makhlof" , Email = "hamza@gmail.com" , PhoneNumber = "0594235698"}
+                , new Customer{CustomerId = 3, FirstName = "ahmed" , LastName = "hamdan" , Email = "ahmed@gmail.com" , PhoneNumber = "0564275698"}
+                , new Customer{CustomerId = 4, FirstName = "ramiz" , LastName = "saleh" , Email = "ramiz@gmail.com" , PhoneNumber = "0564235321"}
+                , new Customer{CustomerId = 5, FirstName = "sodki" , LastName = "saleh" , Email = "sodki@gmail.com" , PhoneNumber = "0564232198"}
             };
-            modelBuilder.Entity<Customers>().HasData(customers);
+            modelBuilder.Entity<Customer>().HasData(customers);
             var menuItems = new MenuItem[]
             {
-                new MenuItem{ItemId = 1 , RestaurantsId = 3 , Name = "potato" , Description = "fried potato" , Price = 6}
-                ,new MenuItem{ItemId = 2 , RestaurantsId = 1 , Name = "soap" , Description = "tomato soap" , Price = 6}
-                ,new MenuItem{ItemId = 3 , RestaurantsId = 2 , Name = "chicken" , Description = "fried chicken" , Price = 6}
-                ,new MenuItem{ItemId = 4 , RestaurantsId = 5 , Name = "steak" , Description = "beef steak" , Price = 6}
-                ,new MenuItem{ItemId = 5 , RestaurantsId = 4 , Name = "falafel" , Description = "falafel" , Price = 6}
+                new MenuItem{ItemId = 1 , RestaurantId = 3 , Name = "potato" , Description = "fried potato" , Price = 6}
+                ,new MenuItem{ItemId = 2 , RestaurantId = 1 , Name = "soap" , Description = "tomato soap" , Price = 6}
+                ,new MenuItem{ItemId = 3 , RestaurantId = 2 , Name = "chicken" , Description = "fried chicken" , Price = 6}
+                ,new MenuItem{ItemId = 4 , RestaurantId = 5 , Name = "steak" , Description = "beef steak" , Price = 6}
+                ,new MenuItem{ItemId = 5 , RestaurantId = 4 , Name = "falafel" , Description = "falafel" , Price = 6}
             };
             modelBuilder.Entity<MenuItem>().HasData(menuItems);
-            var tables = new Tables[]
+            var tables = new Table[]
             {
-                new Tables{TablesId = 1 , Capacity = 4 , RestaurantsID = 4},
-                new Tables{TablesId = 2 , Capacity = 3 , RestaurantsID = 5},
-                new Tables{TablesId = 3 , Capacity = 2 , RestaurantsID = 2},
-                new Tables{TablesId = 4 , Capacity = 5 , RestaurantsID = 1},
-                new Tables{TablesId = 5 , Capacity = 4 , RestaurantsID = 3}
+                new Table{TableId = 1 , Capacity = 4 , RestaurantID = 4},
+                new Table{TableId = 2 , Capacity = 3 , RestaurantID = 5},
+                new Table{TableId = 3 , Capacity = 2 , RestaurantID = 2},
+                new Table{TableId = 4 , Capacity = 5 , RestaurantID = 1},
+                new Table{TableId = 5 , Capacity = 4 , RestaurantID = 3}
             };
-            modelBuilder.Entity<Tables>().HasData(tables);
-            var employees = new Employees[]
+            modelBuilder.Entity<Table>().HasData(tables);
+            var employees = new Employee[]
             {
-                new Employees{EmployeesId = 1 , RestaurantsId = 1 , FirstName = "mohamad" , LastName = "ahmed" , Position = "waitres"},
-                new Employees{EmployeesId = 2 , RestaurantsId = 3 , FirstName = "ahmed" , LastName = "hamdi" , Position = "manager"},
-                new Employees{EmployeesId = 3 , RestaurantsId = 5 , FirstName = "roa" , LastName = "rmzi" , Position = "waitres"},
-                new Employees{EmployeesId = 4 , RestaurantsId = 2 , FirstName = "sami" , LastName = "mohamad" , Position = "waitres"},
-                new Employees{EmployeesId = 5 , RestaurantsId = 4 , FirstName = "lara" , LastName = "sodki" , Position = "waitres"}
+                new Employee{EmployeeId = 1 , RestaurantId = 1 , FirstName = "mohamad" , LastName = "ahmed" , Position = "waitres"},
+                new Employee{EmployeeId = 2 , RestaurantId = 3 , FirstName = "ahmed" , LastName = "hamdi" , Position = "manager"},
+                new Employee{EmployeeId = 3 , RestaurantId = 5 , FirstName = "roa" , LastName = "rmzi" , Position = "waitres"},
+                new Employee{EmployeeId = 4 , RestaurantId = 2 , FirstName = "sami" , LastName = "mohamad" , Position = "waitres"},
+                new Employee{EmployeeId = 5 , RestaurantId = 4 , FirstName = "lara" , LastName = "sodki" , Position = "waitres"}
             };
-            modelBuilder.Entity<Employees>().HasData(employees);
-            var reservations = new Reservations[]
+            modelBuilder.Entity<Employee>().HasData(employees);
+            var reservations = new Reservation[]
             {
-                new Reservations{ReservationId = 1 , CustomersId = 2 , RestaurantsId = 5 , TablesId = 2 , ReservationDate = DateTime.Now , PartySize = 3},
-                new Reservations{ReservationId = 2 , CustomersId = 4 , RestaurantsId = 4 , TablesId = 3 , ReservationDate = DateTime.Now , PartySize = 6},
-                new Reservations{ReservationId = 3 , CustomersId = 5 , RestaurantsId = 3 , TablesId = 1 , ReservationDate = DateTime.Now , PartySize = 2},
-                new Reservations{ReservationId = 4 , CustomersId = 3 , RestaurantsId = 2 , TablesId = 4 , ReservationDate = DateTime.Now , PartySize = 4},
-                new Reservations{ReservationId = 5 , CustomersId = 1 , RestaurantsId = 1 , TablesId = 5 , ReservationDate = DateTime.Now , PartySize = 5}
+                new Reservation{ReservationId = 1 , CustomerId = 2 , RestaurantId = 5 , TableId = 2 , ReservationDate = DateTime.Now , PartySize = 3},
+                new Reservation{ReservationId = 2 , CustomerId = 4 , RestaurantId = 4 , TableId = 3 , ReservationDate = DateTime.Now , PartySize = 6},
+                new Reservation{ReservationId = 3 , CustomerId = 5 , RestaurantId = 3 , TableId = 1 , ReservationDate = DateTime.Now , PartySize = 2},
+                new Reservation{ReservationId = 4 , CustomerId = 3 , RestaurantId = 2 , TableId = 4 , ReservationDate = DateTime.Now , PartySize = 4},
+                new Reservation{ReservationId = 5 , CustomerId = 1 , RestaurantId = 1 , TableId = 5 , ReservationDate = DateTime.Now , PartySize = 5}
             };
-            modelBuilder.Entity<Reservations>().HasData(reservations);
-            var orders = new Orders[]
+            modelBuilder.Entity<Reservation>().HasData(reservations);
+            var orders = new Order[]
             {
-                new Orders{OrdersId = 1 , ReservationsId = 4 , EmployeesId = 1 , OrderDate = DateTime.Now , TotalAmount = 30},
-                new Orders{OrdersId = 2 , ReservationsId = 2 , EmployeesId = 2 , OrderDate = DateTime.Now , TotalAmount = 20},
-                new Orders{OrdersId = 3 , ReservationsId = 5 , EmployeesId = 5 , OrderDate = DateTime.Now , TotalAmount = 10},
-                new Orders{OrdersId = 4 , ReservationsId = 3 , EmployeesId = 3 , OrderDate = DateTime.Now , TotalAmount = 15},
-                new Orders{OrdersId = 5 , ReservationsId = 1 , EmployeesId = 4 , OrderDate = DateTime.Now , TotalAmount = 25}
+                new Order{OrderId = 1 , ReservationId = 4 , EmployeeId = 1 , OrderDate = DateTime.Now , TotalAmount = 30},
+                new Order{OrderId = 2 , ReservationId = 2 , EmployeeId = 2 , OrderDate = DateTime.Now , TotalAmount = 20},
+                new Order{OrderId = 3 , ReservationId = 5 , EmployeeId = 5 , OrderDate = DateTime.Now , TotalAmount = 10},
+                new Order{OrderId = 4 , ReservationId = 3 , EmployeeId = 3 , OrderDate = DateTime.Now , TotalAmount = 15},
+                new Order{OrderId = 5 , ReservationId = 1 , EmployeeId = 4 , OrderDate = DateTime.Now , TotalAmount = 25}
             };
-            modelBuilder.Entity<Orders>().HasData(orders);
-            var orderItems = new OrderItems[]
+            modelBuilder.Entity<Order>().HasData(orders);
+            var orderItems = new OrderItem[]
             {
-                new OrderItems{OrderItemsId = 1 , OrdersId = 4 , MenuItemId = 3 , Quantity = 3},
-                new OrderItems{OrderItemsId = 2 , OrdersId = 1 , MenuItemId = 1 , Quantity = 7},
-                new OrderItems{OrderItemsId = 3 , OrdersId = 2 , MenuItemId = 2 , Quantity = 5},
-                new OrderItems{OrderItemsId = 4 , OrdersId = 5 , MenuItemId = 4 , Quantity = 2},
-                new OrderItems{OrderItemsId = 5 , OrdersId = 3 , MenuItemId = 5 , Quantity = 6}
+                new OrderItem{OrderItemId = 1 , OrderId = 4 , MenuItemId = 3 , Quantity = 3},
+                new OrderItem{OrderItemId = 2 , OrderId = 1 , MenuItemId = 1 , Quantity = 7},
+                new OrderItem{OrderItemId = 3 , OrderId = 2 , MenuItemId = 2 , Quantity = 5},
+                new OrderItem{OrderItemId = 4 , OrderId = 5 , MenuItemId = 4 , Quantity = 2},
+                new OrderItem{OrderItemId = 5 , OrderId = 3 , MenuItemId = 5 , Quantity = 6}
             };
-            modelBuilder.Entity<OrderItems>().HasData(orderItems);
+            modelBuilder.Entity<OrderItem>().HasData(orderItems);
         }
 
        
